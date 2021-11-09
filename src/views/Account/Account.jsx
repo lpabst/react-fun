@@ -3,7 +3,7 @@ import './Account.css';
 
 function Account() {
   return (
-    <div className="Account">
+    <div className="account">
       Account Page
     </div>
   );

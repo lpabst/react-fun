@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fakeBackend from '../../fakeBackend';
 import { context } from '../../store/store';
+import Modal from '../modal/Modal';
 import './Login.css';
 
 function Login() {
@@ -12,10 +13,9 @@ function Login() {
   // before v6, it was "useHistory" instead of "useNavigate"
   const navigate = useNavigate();
 
-  function closeLoginModal() {
+  function closeModal() {
     return dispatch({
-      type: 'EDIT_SHOW_LOGIN',
-      value: false
+      type: 'CLOSE_MODAL'
     })
   }
 
@@ -37,7 +37,7 @@ function Login() {
     }
 
     setError('');
-    closeLoginModal();
+    closeModal();
     dispatch({
       type: "EDIT_USER",
       value: res.data.user
@@ -47,16 +47,13 @@ function Login() {
   }
 
   return (
-    <div className="modalBackground">
-      <div className='modal'>
-        <p className='closeX' onClick={closeLoginModal}>x</p>
-        <p className='loginModalText'>Sign in to your account</p>
-        <input className='loginInput' autoComplete={'new-password'} placeholder='email' type='text' value={email} onChange={e => setEmail(e.target.value)} />
-        <input className='loginInput' autoComplete={'new-password'} placeholder='password' type='password' value={password} onChange={e => setPassword(e.target.value)} />
-        <button className='loginButton' onClick={handleLogin}>Sign In</button>
-        {error && <p className='loginError'>Error: {error}</p>}
-      </div>
-    </div>
+    <Modal>
+      <p className='modalTitle'>Sign in to your account</p>
+      <input className='modalInput' autoComplete={'new-password'} placeholder='email' type='text' value={email} onChange={e => setEmail(e.target.value)} />
+      <input className='modalInput' autoComplete={'new-password'} placeholder='password' type='password' value={password} onChange={e => setPassword(e.target.value)} />
+      <button className='modalButton' onClick={handleLogin}>Sign In</button>
+      {error && <p className='modalError'>Error: {error}</p>}
+    </Modal>
   );
 }
 

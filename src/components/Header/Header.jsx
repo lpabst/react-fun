@@ -8,10 +8,15 @@ function Header() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const navigate = useNavigate();
 
+  function showRegisterModal() {
+    return dispatch({
+      type: 'OPEN_REGISTER_MODAL'
+    })
+  }
+
   function showLoginModal() {
     return dispatch({
-      type: 'EDIT_SHOW_LOGIN',
-      value: true
+      type: 'OPEN_LOGIN_MODAL'
     })
   }
 
@@ -41,7 +46,7 @@ function Header() {
       )}
       {!state.user && (
         <div className='navBar'>
-            <p className='navItem'>Sign Up</p>
+            <p className='navItem' onClick={showRegisterModal}>Sign Up</p>
             <p className='navSpacer'>|</p>
             <p className='navItem' onClick={showLoginModal}>Sign In</p>
         </div>

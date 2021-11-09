@@ -1,16 +1,36 @@
 import React, { createContext, useReducer } from "react";
 
 const initialState = {
+  showModal: false,
   showLogin: false,
+  showRegister: false,
   user: null,
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "EDIT_SHOW_LOGIN": {
+    case "OPEN_LOGIN_MODAL": {
       return {
         ...state,
-        showLogin: action.value,
+        showModal: true,
+        showLogin: true,
+      };
+    }
+
+    case "OPEN_REGISTER_MODAL": {
+      return {
+        ...state,
+        showModal: true,
+        showRegister: true,
+      };
+    }
+
+    case "CLOSE_MODAL": {
+      return {
+        ...state,
+        showModal: false,
+        showLogin: false,
+        showRegister: false,
       };
     }
 
