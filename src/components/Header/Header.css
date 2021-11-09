@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    background: #252324;
+}
+
+.navBar {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.navSpacer {
+    height: 60px;
+    line-height: 60px;
+}
+
+.navItem {
+    width: 100px;
+    height: 60px;
+    cursor: pointer;
+    line-height: 60px;
+}
+
+.navItem:hover {
+    background: #424345;
+}

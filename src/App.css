@@ -1,38 +1,35 @@
 .App {
+  position: relative;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.landingImage {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
+  background: url('https://images7.alphacoders.com/329/thumb-1920-329832.jpg') center no-repeat;
+  background-size: auto 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.landingImageText {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-bottom: 100px;
+  color: #e2e2e2;
 }
 
-.App-link {
-  color: #61dafb;
+.landingImageMainText {
+  font-size: 80px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
+  text-decoration: underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.landingImageSubText {
+  font-size: 64px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
 }
