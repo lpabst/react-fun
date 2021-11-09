@@ -1,0 +1,61 @@
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(100, 100, 100, 0.6);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 300px;
+    height: auto;
+    padding: 40px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #222;
+}
+
+.closeX {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.loginModalText {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.loginInput {
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.loginButton {
+    border-radius: 2px;
+    height: 30px;
+    width: 120px;
+    margin: 20px auto 0px auto;
+    cursor: pointer;
+}
+
+.loginError {
+    width: 100%;
+    height: auto;
+    background: #f4a4a4;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 2px;
+    text-align: left;
+}
