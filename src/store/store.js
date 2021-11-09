@@ -1,9 +1,7 @@
 import React, { createContext, useReducer } from "react";
 
 const initialState = {
-  showModal: false,
-  showLogin: false,
-  showRegister: false,
+  modalToShow: null,
   user: null,
 };
 
@@ -12,25 +10,21 @@ const reducer = (state, action) => {
     case "OPEN_LOGIN_MODAL": {
       return {
         ...state,
-        showModal: true,
-        showLogin: true,
+        modalToShow: "login",
       };
     }
 
     case "OPEN_REGISTER_MODAL": {
       return {
         ...state,
-        showModal: true,
-        showRegister: true,
+        modalToShow: "register",
       };
     }
 
     case "CLOSE_MODAL": {
       return {
         ...state,
-        showModal: false,
-        showLogin: false,
-        showRegister: false,
+        modalToShow: null,
       };
     }
 

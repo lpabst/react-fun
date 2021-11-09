@@ -14,8 +14,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {state.showModal && state.showLogin && <Login />}
-      {state.showModal && state.showRegister && <Register />}
+      {state.modalToShow === 'login' && <Login />}
+      {state.modalToShow === 'register' && <Register />}
       {/* "Switch" was replaced with "Routes" in v6 of react-router-dom, and now we use element=component */}
       <Routes>
         <Route path='/' element={<Home />} />
