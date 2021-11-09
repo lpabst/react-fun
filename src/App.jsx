@@ -1,13 +1,16 @@
+import React, { useContext } from 'react';
 import './App.css';
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'
+import { context } from './store/store.js';
 
 function App() {
-  const showLogin = false;
+  const {state, dispatch} = useContext(context);
+
   return (
     <div className="App">
       <Header />
-      {showLogin && <Login />}
+      {state.showLogin && <Login />}
       <div className='landingImage'>
         <div className='landingImageText'>
           <p className='landingImageMainText'>The Leader</p>

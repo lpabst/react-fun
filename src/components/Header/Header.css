@@ -28,3 +28,14 @@
 .navItem:hover {
     background: #424345;
 }
+
+.userMenu {
+    width: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    background: #252324;
+}
