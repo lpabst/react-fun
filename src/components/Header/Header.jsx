@@ -4,7 +4,7 @@ import './Header.css';
 
 function Header() {
   const {state, dispatch} = useContext(context);
-  const [showUserMenu, setShowUserMenu] = useState(true);
+  const [showUserMenu, setShowUserMenu] = useState(false);
 
   function showLoginModal() {
     return dispatch({
@@ -12,18 +12,28 @@ function Header() {
       value: true
     })
   }
+
+  function logout() {
+    setShowUserMenu(false);
+    dispatch({
+      type: 'EDIT_USER',
+      value: null
+    })
+  }
   
   return (
     <div className="header">
       {state.user && (
         <div className='navBar'>
-          <p className='navItem'>{state.user.firstName}</p>
-          {showUserMenu && (
-            <div className='userMenu'>
-              <p className='navItem'>Account</p>
-              <p className='navItem'>Logout</p>
-            </div>
-          )}
+          <div onMouseEnter={() => setShowUserMenu(true)} onMouseLeave={() => setShowUserMenu(false)}>
+            <p className='navItem'>{state.user.firstName}</p>
+            {showUserMenu && (
+              <div className='userMenu'>
+                <p className='navItem'>Account</p>
+                <p className='navItem' onClick={logout}>Logout</p>
+              </div>
+            )}
+          </div>
         </div>
       )}
       {!state.user && (

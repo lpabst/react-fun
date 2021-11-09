@@ -20,20 +20,25 @@ function Login() {
     setError('');
 
     // NOTE: we'd hit an actual api in real life
-    const res = await fakeBackend.login(email, password).catch(e => {
-      setError(e.message)
-    })
-    
-    if (!res || !res.data || !res.data.user) {
-      setError('Unexpected Error. Please try again')
+    const res = await fakeBackend.login(email, password).catch(e => e)
+    console.log(res)
+
+    if (!res || (res.status === 200 && !res.data)) {
+      setError('Unexpected Error. Please try again');
+      return;
     }
 
+    if (res.status !== 200 && res.message) {
+      setError(res.message);
+      return;
+    }
+
+    setError('');
+    closeLoginModal();
     dispatch({
       type: "EDIT_USER",
       value: res.data.user
     })
-    setError('');
-    closeLoginModal();
   }
 
   return (
@@ -41,8 +46,8 @@ function Login() {
       <div className='modal'>
         <p className='closeX' onClick={closeLoginModal}>x</p>
         <p className='loginModalText'>Sign in to your account</p>
-        <input className='loginInput' placeholder='email' value={email} onChange={e => setEmail(e.target.value)} />
-        <input className='loginInput' placeholder='password' value={password} onChange={e => setPassword(e.target.value)} />
+        <input className='loginInput' autoComplete={'new-password'} placeholder='email' type='text' value={email} onChange={e => setEmail(e.target.value)} />
+        <input className='loginInput' autoComplete={'new-password'} placeholder='password' type='password' value={password} onChange={e => setPassword(e.target.value)} />
         <button className='loginButton' onClick={handleLogin}>Sign In</button>
         {error && <p className='loginError'>Error: {error}</p>}
       </div>
