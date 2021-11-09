@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import fakeBackend from '../../fakeBackend';
 import { context } from '../../store/store';
 import './Login.css';
@@ -8,6 +9,8 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  // before v6, it was "useHistory" instead of "useNavigate"
+  const navigate = useNavigate();
 
   function closeLoginModal() {
     return dispatch({
@@ -39,6 +42,8 @@ function Login() {
       type: "EDIT_USER",
       value: res.data.user
     })
+    // before v6, we would have done "history.push('/account');"
+    navigate('/account');
   }
 
   return (

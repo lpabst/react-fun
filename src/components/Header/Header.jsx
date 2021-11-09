@@ -1,10 +1,12 @@
 import { useContext, useState } from 'react';
 import { context } from '../../store/store';
 import './Header.css';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const {state, dispatch} = useContext(context);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const navigate = useNavigate();
 
   function showLoginModal() {
     return dispatch({
@@ -19,6 +21,7 @@ function Header() {
       type: 'EDIT_USER',
       value: null
     })
+    navigate('/')
   }
   
   return (
