@@ -1,0 +1,31 @@
+
+.landingImage {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    height: calc(100vh - 60px);
+    background: url('https://images7.alphacoders.com/329/thumb-1920-329832.jpg') center no-repeat;
+    background-size: auto 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .landingImageText {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+    color: #e2e2e2;
+  }
+  
+  .landingImageMainText {
+    font-size: 80px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+    text-decoration: underline;
+  }
+  
+  .landingImageSubText {
+    font-size: 64px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+  }
